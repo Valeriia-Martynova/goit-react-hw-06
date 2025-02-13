@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { addContact } from "../../redux/contactsSlice";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import c from "./ContactForm.module.css";
@@ -14,10 +16,11 @@ const validationSchema = Yup.object().shape({
     .required("Enter number"),
 });
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    const newContact = { id: nanoid(), ...values };
-    onAddContact(newContact);
+    dispatch(addContact({ ...values, id: nanoid() }));
     resetForm();
   };
 

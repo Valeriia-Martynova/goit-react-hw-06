@@ -38,7 +38,7 @@ li {
   color: white;
   padding: 8px 12px;
   border-radius: 5px;
-  cursor: pointer;
+
   transition: background-color 0.25s ease;
 }
 
@@ -48,5 +48,6 @@ li {
 
 .contactItem:hover {
   transform: scale(1.02);
-  background-color: #8e8f99;
+  background-color: #070e58;
+  color: white;
 }
